@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: annotations
+  labels:
+    course: devops
+    trainer: siva
+  annotations:
+    time: "110hours"
+spec:
+  containers:
+  - name: nginx-pod
+    image: nginx
+    ports: 
+    - containerPort: 80
