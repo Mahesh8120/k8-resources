@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: nginx-pod
+  labels: 
+    app: nginx
+    demo: service
+spec:
+  containers:
+  - name: nginx-pod
+    image: nginx
+    ports: 
+    - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: nginx-service
+spec: 
+  selecter:
+    app: nginx
+    demo: service
+  ports:
+    protocol: tcp
+    port: 80
+    targetport: 80
+    
