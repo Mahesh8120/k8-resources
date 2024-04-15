@@ -1,27 +1,28 @@
 apiVersion: v1
 kind: Pod
-metadata: 
+metadata:
   name: nginx-pod
-  labels: 
+  labels:
     app: nginx
     demo: service
 spec:
+  # list of containers
   containers:
   - name: nginx-pod
     image: nginx
-    ports: 
+    #here with this line port will not be opened, just for information
+    ports:
     - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
-metadata: 
+metadata:
   name: nginx-service
-spec: 
+spec:
   selector:
     app: nginx
     demo: service
   ports:
-  - Protocol: TCP
-    port: 80
-    targetPort: 80
-
+  - protocol: TCP
+    port: 80 #service-port
+    targetPort: 80 #container-port
